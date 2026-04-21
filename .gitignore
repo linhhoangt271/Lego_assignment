@@ -1,0 +1,39 @@
+# Data & Images
+images/
+minifigs.json
+*.jpg
+*.png
+*.jpeg
+
+# Model Checkpoints & Results
+baseline_results/
+optionB_*_results/
+*_hpopt_results/
+evaluation_results/
+comparison_*/
+synthetic/
+runs/
+*.pth
+*.pt
+yolov8n.pt
+
+# Logs & Temp
+*.log
+*.tmp
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# System
+.DS_Store
+.env
+.env.local

@@ -1,0 +1,167 @@
+═══════════════════════════════════════════════════════════════════════════════
+              V3 HYPERPARAMETER TUNING + 3-FOLD CV PIPELINE
+                          PROGRESS TRACKING
+═══════════════════════════════════════════════════════════════════════════════
+
+SCRIPT: optionB_v3_hpopt.py
+STATUS: ✅ COMPLETE (ALL PHASES FINISHED)
+OUTPUT: optionB_v3_hpopt_results/
+
+Elapsed Time: 29 hours 10 minutes (Started Apr 8, ~15:24 UTC)
+Completion Time: Apr 9, 20:34 UTC
+
+═══════════════════════════════════════════════════════════════════════════════
+                          OVERALL PROGRESS
+═══════════════════════════════════════════════════════════════════════════════
+
+[████████████████████████████████████████████████████████████████████████] 100% Complete
+
+PHASE 1: OPTUNA HYPERPARAMETER SEARCH       ✅ COMPLETE (Apr 9, 11:10 UTC)
+PHASE 2: 3-FOLD CROSS-VALIDATION            ✅ COMPLETE (Apr 9, 18:01 UTC)
+PHASE 3: FINAL REPORTING                    ✅ COMPLETE (Apr 9, 20:34 UTC)
+
+═══════════════════════════════════════════════════════════════════════════════
+                        PHASE 1: HP SEARCH (COMPLETE)
+═══════════════════════════════════════════════════════════════════════════════
+
+COMPLETED: Apr 9, 11:10 UTC | Duration: ~20 hours
+
+✅ Focal Loss (10 trials)
+   Best Val F1: 0.6833
+   Best HP: lr=2.90e-4, weight_decay=4.20e-5, label_smoothing=0.1
+            dropout1=0.3, dropout2=0.3, focal_gamma=1.177
+            mixup_prob=0.159, cutmix_prob=0.114, t0=4
+
+✅ ArcFace Loss (10 trials)
+   Best Val F1: 0.6729
+   Best HP: lr=4.31e-4, weight_decay=3.01e-5, label_smoothing=0.15
+            dropout1=0.5, dropout2=0.2, arc_scale=30, arc_margin=0.323
+            mixup_prob=0.351, cutmix_prob=0.196, t0=3
+
+✅ SupCon Loss (10 trials)
+   Best Val F1: 0.6984 ⭐ (HIGHEST)
+   Best HP: lr=3.71e-4, weight_decay=3.66e-5, label_smoothing=0.1
+            dropout1=0.3, dropout2=0.3, supcon_temp=0.131, supcon_epochs=10
+            mixup_prob=0.224, cutmix_prob=0.212, t0=6
+
+═══════════════════════════════════════════════════════════════════════════════
+                    PHASE 2: 3-FOLD CROSS-VALIDATION (IN PROGRESS)
+═══════════════════════════════════════════════════════════════════════════════
+
+FOLD 1/3 ✅ COMPLETE (Apr 9, 12:05 - 14:57 UTC)
+────────────────────────────────────────────────────────────────────────
+├─ Focal Loss (20 epochs):   Macro F1 = 0.7084 ✓ [best_model_focal_fold0.pth]
+├─ ArcFace Loss (20 epochs): Macro F1 = 0.6851 ✓
+└─ SupCon Loss (30 epochs):  Macro F1 = 0.7157 ✓
+
+FOLD 2/3 ✅ COMPLETE (Apr 9, 14:57 - 17:30 UTC)
+────────────────────────────────────────────────────────────────────────
+├─ Focal Loss (20 epochs):   Macro F1 = 0.7213 ✓ [best_model_focal_fold1.pth]
+├─ ArcFace Loss (20 epochs): Macro F1 = 0.7300 ✓ (Best fold 2 result)
+└─ SupCon Loss (30 epochs):  Macro F1 = 0.7031 ✓
+
+FOLD 3/3 ✅ COMPLETE (Apr 9, 17:30 - 18:01 UTC)
+────────────────────────────────────────────────────────────────────────
+├─ Focal Loss (20 epochs):   Macro F1 = 0.7191 ✓ [best_model_focal_fold2.pth]
+├─ ArcFace Loss (20 epochs): Macro F1 = 0.7256 ✓
+└─ SupCon Loss (30 epochs):  Macro F1 = 0.7432 ✓ (BEST FOLD OVERALL)
+
+═══════════════════════════════════════════════════════════════════════════════
+                          CROSS-VALIDATION SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+FOCAL LOSS:
+  Fold 1: 0.7084
+  Fold 2: 0.7213
+  Fold 3: 0.7191
+  Mean ± Std: 0.7163 ± 0.0056 (MOST STABLE)
+
+ARCFACE LOSS:
+  Fold 1: 0.6851
+  Fold 2: 0.7300 ← Best Fold 2
+  Fold 3: 0.7256
+  Mean ± Std: 0.7136 ± 0.0202 (HIGH VARIANCE)
+
+SUPCON LOSS (⭐ BEST OVERALL):
+  Fold 1: 0.7157
+  Fold 2: 0.7031
+  Fold 3: 0.7432 ← BEST SINGLE FOLD
+  Mean ± Std: 0.7207 ± 0.0167
+
+═══════════════════════════════════════════════════════════════════════════════
+                            TIME BREAKDOWN
+═══════════════════════════════════════════════════════════════════════════════
+
+Phase 1 (HP Search):     ~20 hours    ✅ Complete (Apr 8 15:24 - Apr 9 11:10)
+Phase 2 (CV Folds 1-3):  ~6.5 hours   ✅ Complete (Apr 9 11:10 - 18:01)
+  - Fold 1:              ~2h 47m      ✅ Complete
+  - Fold 2:              ~2h 33m      ✅ Complete
+  - Fold 3:              ~1h 31m      ✅ Complete
+Phase 3 (Reporting):     ~2 min       ✅ Complete (Apr 9 18:01 - 20:34)
+
+TOTAL ELAPSED: 29h 10m
+ACTUAL COMPLETION: Apr 9, 20:34 UTC
+
+═══════════════════════════════════════════════════════════════════════════════
+                           OUTPUT FILES CREATED
+═══════════════════════════════════════════════════════════════════════════════
+
+optionB_v3_hpopt_results/ (214 MB total)
+├── hp_search_results.txt           ✅ 1.1 KB   (Best HP for all variants)
+├── best_model_focal_fold0.pth      ✅ 72 MB    (Fold 0 - Focal)
+├── best_model_focal_fold1.pth      ✅ 72 MB    (Fold 1 - Focal)
+├── best_model_focal_fold2.pth      ✅ 72 MB    (Fold 2 - Focal)
+├── cv_results.txt                  ✅ 585 B    (Final CV metrics)
+└── final_comparison.txt            ✅ 1.7 KB   (HP-tuned vs baseline V3)
+
+═══════════════════════════════════════════════════════════════════════════════
+                         KEY OBSERVATIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. ✅ HP SEARCH SUCCESS: All 30 trials completed successfully
+   - SupCon achieved highest validation F1: 0.6984
+   - Focal second best: 0.6833
+   - ArcFace third: 0.6729
+
+2. 📈 CV IMPROVEMENT: Fold 1 shows strong generalization
+   - Focal: 0.7084 (+0.0251 vs HP baseline) ✅ Good generalization
+   - SupCon: 0.7157 (+0.0173 vs HP baseline) ✅ BEST VARIANT
+   - ArcFace: 0.6851 (+0.0122 vs HP baseline) ✓ Good generalization
+
+3. ⭐ SupCon Loss is the clear winner:
+   - Highest validation F1 in HP search: 0.6984
+   - Highest validation F1 in Fold 1 CV: 0.7157
+   - Expected to maintain lead in Folds 2-3
+
+4. ⚠️ Key Finding: HP Tuning Did NOT Improve Performance
+   - Baseline V3 models outperformed HP-tuned versions
+   - Focal baseline: 0.7736 vs tuned: 0.7163 (-7.41%)
+   - ArcFace baseline: 0.7345 vs tuned: 0.7136 (-2.85%)
+   - SupCon baseline: 0.7951 vs tuned: 0.7207 (-9.36%)
+   - Baseline hyperparameters were already well-optimized
+
+═══════════════════════════════════════════════════════════════════════════════
+                       TO MONITOR FURTHER PROGRESS
+═══════════════════════════════════════════════════════════════════════════════
+
+Check if still running:
+  $ ps aux | grep optionB_v3_hpopt | grep -v grep | wc -l
+
+Watch output directory:
+  $ watch -n 5 'ls -lh /home/test/big_data_assignment_2/optionB_v3_hpopt_results/'
+
+View current results:
+  $ cat /home/test/big_data_assignment_2/optionB_v3_hpopt_results/hp_search_results.txt
+
+Monitor GPU usage:
+  $ nvidia-smi -l 1  # Updates every 1 second
+
+Watch training log:
+  $ tail -f /home/test/big_data_assignment_2/optionB_v3_hpopt_training.log
+
+═══════════════════════════════════════════════════════════════════════════════
+
+STATUS: ✅ PIPELINE COMPLETE
+COMPLETION TIME: Apr 9, 20:34 UTC
+LAST UPDATED: Apr 13, 2026
+

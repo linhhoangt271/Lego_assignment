@@ -1,0 +1,126 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                  MODEL SAVING - QUICK CHEAT SHEET                         ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+⚠️  Models (72MB) won't fit in regular git!
+    Use one of these approaches:
+
+═════════════════════════════════════════════════════════════════════════════
+
+METHOD 1: GITHUB RELEASES (Easiest)
+
+# Step 1: Train model
+python src/training/optionB_v3.py
+
+# Step 2: Create version tag
+git tag v1.0-supcon -m "V3 SupCon model - F1=0.7207"
+git push origin v1.0-supcon
+
+# Step 3: On GitHub.com
+Go to Releases → Create Release
+Select tag: v1.0-supcon
+Upload: best_model.pth
+Publish
+
+# Team downloads from Release page
+✅ DONE!
+
+═════════════════════════════════════════════════════════════════════════════
+
+METHOD 2: GIT LFS (Professional)
+
+# Step 1: Setup (one-time)
+git lfs install
+git lfs track "*.pth"
+git add .gitattributes
+git commit -m "Setup Git LFS"
+git push origin main
+
+# Step 2: Save model (every time)
+python src/training/optionB_v3.py
+git add best_model.pth
+git commit -m "Save V3 model: F1=0.7207"
+git push origin main
+
+# Team clones normally
+git clone <repo>
+# best_model.pth auto-downloads!
+
+✅ DONE!
+
+═════════════════════════════════════════════════════════════════════════════
+
+METHOD 3: GOOGLE DRIVE (Simple)
+
+# Step 1: Upload to Google Drive
+# Upload best_model.pth via browser
+# Share folder with team
+
+# Step 2: Create metadata in git
+cat > model_metadata.json << 'EOF2'
+{
+  "name": "V3 SupCon",
+  "f1_score": 0.7207,
+  "download": "https://drive.google.com/file/d/...",
+  "notes": "Best model"
+}
+EOF2
+
+git add model_metadata.json
+git commit -m "Add model metadata (weights on Google Drive)"
+git push origin main
+
+# Team gets model
+Click Google Drive link
+
+✅ DONE!
+
+═════════════════════════════════════════════════════════════════════════════
+
+ALWAYS CREATE METADATA
+
+Every time you save a model:
+
+cat > model_metadata.json << 'EOF3'
+{
+  "name": "V3 SupCon",
+  "architecture": "EfficientNet-B4",
+  "loss": "Supervised Contrastive",
+  "f1_score": 0.7207,
+  "epochs": 20,
+  "batch_size": 16,
+  "learning_rate": 3e-4,
+  "training_date": "2026-04-21",
+  "notes": "Best overall model"
+}
+EOF3
+
+git add model_metadata.json
+git commit -m "Save V3 model metadata"
+git push origin main
+
+═════════════════════════════════════════════════════════════════════════════
+
+COMPARISON
+
+Releases:      Easy (no setup), free, good for versions
+Git LFS:       Professional, automatic, $5/month for many models
+Google Drive:  Simple, free, good for development
+
+═════════════════════════════════════════════════════════════════════════════
+
+RECOMMENDED WORKFLOW
+
+1. Train model
+2. Create model_metadata.json
+3. Choose method:
+   - If releasing: GitHub Releases
+   - If developing: Google Drive + metadata
+   - If professional: Git LFS
+
+4. Commit metadata to git (always!)
+5. Share with team
+
+═════════════════════════════════════════════════════════════════════════════
+
+For more: See SAVE_MODELS_QUICK.md or docs/MODEL_VERSIONING.md

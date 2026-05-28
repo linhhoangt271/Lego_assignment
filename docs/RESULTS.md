@@ -414,10 +414,6 @@ Next steps:
 
 ## Files for Reference
 
-- **Best model checkpoint**: `optionB_v3_hpopt_results/best_model_focal_fold1.pth`
-- **Detailed logs**: `optionB_v3_hpopt_results/hp_search_results.txt`
-- **CV results**: `optionB_v3_hpopt_results/cv_results.txt`
-- **Final comparison**: `optionB_v3_hpopt_results/final_comparison.txt`
 
 ---
 

@@ -2,7 +2,7 @@
 
 This repository keeps the model workflow in one GPU-ready notebook for easier GitHub management:
 
-- `Models_Summary.ipynb` - consolidated notebook for training and evaluation
+- `Models_Summary.ipynb` - step-based notebook for shared data loading, training, and evaluation
 - `requirements.txt` - Python dependencies
 - `docs/` - supporting project notes and results summaries
 
@@ -30,11 +30,8 @@ big_data_assignment_2/
 |---|---:|---|---|
 | Baseline | 122 | EfficientNet-B0 | Raw-category reference baseline |
 | Option B V2 | 37 | EfficientNet-B2 | Town split, stronger augmentation, TTA |
-| Option B V3 | 28/37 | EfficientNet-B4 | YOLO cropping, synthetic minority augmentation, Focal/ArcFace/SupCon variants |
-| V3 HP Tuning | 28/37 | EfficientNet-B4 | Optuna search plus 3-fold cross-validation |
-| Option B V4 | 28 | ConvNeXt-Small or EfficientNet-B4 | Latest optimized model with SWA and weighted ensemble |
-| ResNet50 Top-20 | 20 | ResNet50 | Small reference baseline on common classes |
-| Evaluation Utilities | Multiple | Saved checkpoints | Compare saved model outputs |
+| Option B V3 | 37 | EfficientNet-B4 | Larger images, merged labels, Focal/ArcFace/SupCon variants |
+| Option B V4 | 37 | ConvNeXt-Small or EfficientNet-B4 | V3-style labels with SWA-ready ConvNeXt/EfficientNet training |
 
 ## GitHub Cleanup Policy
 

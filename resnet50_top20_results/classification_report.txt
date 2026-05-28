@@ -1,0 +1,26 @@
+                            precision    recall  f1-score   support
+
+                      Town       0.91      0.58      0.71       704
+                 Star Wars       0.90      0.80      0.85       299
+              Super Heroes       0.73      0.69      0.71       222
+                     DUPLO       0.94      0.97      0.95       197
+                   NINJAGO       0.84      0.85      0.85       189
+                   Friends       0.98      0.93      0.95       177
+   Collectible Minifigures       0.54      0.52      0.53       161
+              Harry Potter       0.73      0.73      0.73       127
+                    Castle       0.82      0.72      0.76       109
+           Holiday & Event       0.30      0.72      0.43        76
+                    Disney       0.78      0.76      0.77        75
+                LEGO Ideas       0.30      0.45      0.36        55
+BrickLink Designer Program       0.31      0.47      0.38        53
+                 Minecraft       0.92      0.96      0.94        51
+                    Sports       0.39      0.82      0.53        50
+               Super Mario       0.86      0.91      0.88        46
+                     Space       0.49      0.83      0.61        42
+                   Pirates       0.76      0.93      0.83        40
+                Monkie Kid       0.78      0.81      0.79        36
+                LEGO Brand       0.23      0.66      0.34        32
+
+                  accuracy                           0.72      2741
+                 macro avg       0.67      0.76      0.70      2741
+              weighted avg       0.79      0.72      0.74      2741

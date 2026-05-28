@@ -1,0 +1,34 @@
+
+ResNet50 Fine-tuning Results
+============================
+Classes: 20
+Total samples: 13705
+Training time: 22.4 minutes
+
+Final Validation Metrics:
+- Accuracy: 0.7246
+- Macro F1: 0.6952
+- Weighted F1: 0.7401
+
+Per-class F1 scores:
+
+  Town                          : 0.7055
+  Star Wars                     : 0.8466
+  Super Heroes                  : 0.7100
+  DUPLO                         : 0.9550
+  NINJAGO                       : 0.8451
+  Friends                       : 0.9538
+  Collectible Minifigures       : 0.5253
+  Harry Potter                  : 0.7323
+  Castle                        : 0.7647
+  Holiday & Event               : 0.4264
+  Disney                        : 0.7703
+  LEGO Ideas                    : 0.3597
+  BrickLink Designer Program    : 0.3759
+  Minecraft                     : 0.9423
+  Sports                        : 0.5290
+  Super Mario                   : 0.8842
+  Space                         : 0.6140
+  Pirates                       : 0.8315
+  Monkie Kid                    : 0.7945
+  LEGO Brand                    : 0.3387

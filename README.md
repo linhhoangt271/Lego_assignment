@@ -33,6 +33,10 @@ big_data_assignment_2/
 | Option B V3 | 37 | EfficientNet-B4 | Larger images, merged labels, Focal/ArcFace/SupCon variants |
 | Option B V4 | 37 | ConvNeXt-Small or EfficientNet-B4 | V3-style labels with SWA-ready ConvNeXt/EfficientNet training |
 
+## Reusing Local Checkpoints
+
+The notebook checks each model config for `checkpoint_path` before training. If a compatible local `.pth` exists, the training cell loads it and skips retraining. Checkpoints stay ignored by Git, so keep them locally in the matching result folder.
+
 ## GitHub Cleanup Policy
 
 Do not commit generated files:
